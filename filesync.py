@@ -170,6 +170,11 @@ class FileSyncBuild(sublime_plugin.EventListener):
         if _enabled:
             sync_file(view.file_name())
 
+    def on_modified(self, view):
+        global _enabled
+        if _enabled:
+            sync_file(view.file_name())
+
 
 def updateStatus(text):
     log(text)
